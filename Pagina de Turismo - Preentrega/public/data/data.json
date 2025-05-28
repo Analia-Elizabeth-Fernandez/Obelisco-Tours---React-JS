@@ -1,0 +1,106 @@
+
+
+[
+    {
+        "id": 1,
+        "nombre": "Walking Tour - Barrio La Boca",
+        "imagen": "/img/Barrio La Boca.jpg",
+        "precio": 45.99, 
+        "stock": 10,
+        "description": "Explore uno de los barrios con más historia de Buenos Aires en este recorrido privado a pie por La Boca, un enclave bohemio y el lugar de nacimiento del tango. Los puntos destacados incluyen visitar el Mercado Caminito, el Museo Benito Quinquela Martín y el Puente Transbordador Nicolás Avellaneda, un puente histórico en las calles Riachuelo y Vuelta de Rocha. Su recorrido concluye en el Estadio Alberto J. Armando, también conocido como 'La Bombonera' y hogar del querido equipo de fútbol Boca Juniors."
+    },
+
+    {
+        "id": 2,
+        "nombre": "City Tour - Buenos Aires",
+        "imagen": "/img/Buenos Aires city Tour.jpeg",
+        "precio": 45.99,
+        "stock": 10,
+        "description": "Es el primer paseo que recomendamos realizar en Buenos Aires, en este tour conoceras a  “LA REINA DEL PLATA”. Te buscamos por el hotel y vamos a recorrer los barrios más emblemáticos de la ciudad. Centro, Microcentro, Plaza de Mayo, Recoleta, La Boca y Caminito y muchos otros puntos destacados de la Ciudad."
+    },
+    {
+        "id": 3,
+        "nombre": "Cementerio de la Recoleta & Evita Perón",
+        "imagen": "../img/Cementerio de la Recoleta.jpg",
+        "precio": 69.99,
+        "stock": 10,
+        "description": "Conozca uno de los barrios mas aristocráticos de la Ciudad de Buenos Aires, cuna de las  grandes familias que vivieron en la buenos aires de finales del Siglo XIX. Conozca su famoso Cementerio, considerado uno de los 3 mas bonitos del mundo, por su valor histórico, artístico y cultural. Donde descansan los restos de grandes y notables personalidades de la historia argentina (políticos, soldados, artistas héroes nacionales y mas)."
+    },
+    {
+        "id": 4,
+        "nombre": "Walking Tour Gastronómico San Telmo",
+        "imagen": "/img/Mercado de San Telmo.jpg",
+        "precio": 89.99,
+        "stock": 10,
+        "description": "Descubra los sitios, los sonidos y la cultura del barrio de San Telmo y su mercado en un recorrido privado a pie. Conocido por sus antigüedades, souvenirs y comida argentina, puedes explorar este famoso rincón de Buenos Aires a través de los ojos de un experto. Con un guía personal a tu disposición, tienes la oportunidad de hacer preguntas y detenerte en los lugares que más te interesen."
+    },
+    {
+        "id": 5,
+        "nombre": "Show de Tango",
+        "imagen": "/img/Tango.jpg",
+        "precio": 59.99,
+        "stock": 10,
+        "description": "Nuestra esquina es la más tanguera de Argentina, donde la poesía y el tango nos invitan a soñar. El símbolo de la cultura urbana de la década del cuarenta. Por sus mesas, pasaron los músicos que hicieron del tango la expresión artística más importante de nuestra historia. El encanto y la importancia cultural del lugar, declarado edificio histórico, nos atrae a San Juan y Boedo en el cual disfrutaremos de un espectaculo de tango sumergiendonos en la cultura de Buenos Aires."
+    },
+    {
+        "id": 6,
+        "nombre": "Nuestra cultura - Fiesta Gaucha",
+        "imagen": "/img/Fiesta Gaucha.jpeg",
+        "precio": 189.99,
+        "stock": 10,
+        "description": "La fiesta gaucha se disfruta los dias sabados de 10.30 a 18.30 horas; en este día se puede disfrutar de gastronomía típica, cabalgatas, paseos a caballo, paseos en sulky y piscina al aire libre durante el verano, canchas de tenis, fútbol, voleibol, caminatas a través del exuberante bosque de más de 20 hectáreas. Ubicación: Lobos, a unos 120 km de la ciudad. Destaca su castillo de 1890 diseñado por el arquitecto francés Alberto Favre - Estancia La Candelaria."
+    },
+    {
+        "id": 7,
+        "nombre": "Paseo en el Tigre",
+        "imagen": "/img/Delta - Tigre.jpg",
+        "precio": 69.99,
+        "stock": 10,
+        "description": "Conozca la ciudad de Tigre y uno de los mayores deltas del mundo “LA VENECIA ARGENTINA”. Inolvidable paseo que recorre el famoso Delta del Río Paraná y la zona norte de Bs As. En este tour podra conocer, disfrutar un dia al aire libre en el hermoso Delta del Rio Tigre, recorriendo su mercado, su casco historico y navegando sus aguas rodeadas de vegetaciones. Este tiene tour tiene salidas diarias por la mañana."
+    },
+    {
+        "id": 8,
+        "nombre": "Cata de vinos Premium en Palermo",
+        "imagen": "/img/Cata de vinos.png",
+        "precio": 95.99,
+        "stock": 10,
+        "description": "Degustaciones programadas (individuales o grupales) de los mas exquisitos vinos argentinos. El servicio de sommeliers puede ser bilingüe. Las opciones de degustación son de 6 etiquetas de vinos de alta gama, ambas a cargo del sommeliers de basta experiencia. Previamente se realiza un walking tour en Palermo, en la zona de Plaza Cortazar. La cata estará acompañada de una degustación de empanaditas de lomo (el menú puede estar sujeto a modificaciones por el tipo de evento). En caso de que los asistentes sean vegetarianos, el menú será de una tabla de quesos y frutos secos."
+    },
+    {
+        "id": 9,
+        "nombre": "Visita Museo de River",
+        "imagen": "/img/Museo River.jpeg",
+        "precio": 119.99,
+        "stock": 10,
+        "description": "Visite y conozca la historia de uno de los más importantes equipos argentinos. Admire sus vitrinas, sus conquistas nacionales e internacionales. Admire su moderno y funcional Museo. Recorra su estadio, sus tribunas y acceda a los vestuarios donde se cambian los equipos los días de partido. Se podra bajar al campo de juego, conocer el tunel unico y el vestuario visitante siempre y cuando no haya ningun evento en el estadio (conciertos, partido de futbol, entrenamiento u otra situacion que impida el acceso a estas secciones del estadio)."
+    },
+
+    {
+        "id": 10,
+        "nombre": "Visita Museo de Boca Juniors + Caminito",
+        "imagen": "/img/Bombonera.jpg",
+        "precio": 84.99,
+        "stock": 10,
+        "description": "Explore el Museo Boca Juniors en Buenos Aires. Cuando reserve este tour privado, tiene la garantía de saltarse todas las largas filas para ingresar. Tiene un mínimo de dos personas por reserva. Usted y su grupo privado conocerán la historia de este importante equipo argentino, aprenderán todo sobre sus logros nacionales e internacionales y también visitarán el estadio y el vestuario los cuales estaran sujetos a disponibilidad. Finalizamos el tour recorriendo el Mercado de Caminito en el hermoso Barrio de la Boca."
+    },
+
+    {
+        "id": 11,
+        "nombre": "Walking Tour - San Telmo",
+        "imagen": "/img/Barrio San Telmo 3.jpg",
+        "precio": 45.99,
+        "stock": 10,
+        "description": "En este Tour tendrás la oportunidad de realizar un paseo increíble por los rincones más pintorescos de la ciudad, que te transportaran a la Buenos Aires colonial, con sus estilos arquitectónicos, costumbres y secretos. Dando comienzo en el Parque Lezama, recorreremos joyas arquitectonicas como la Iglesia Ortodoxa Rusa, edificios fundados por los jesuitas, caminaremos por la calle donde ingresaron las tropas inglesas al principio del siglo XIX y visitaremos edificios icónicos commo la residencia de los Ezeiza, construida a finales de dicho siglo. Podremos disfrutar de un ambiente encantador, tomando fotos inolvidables como la casa mas angosta de la ciudad y un cielo de paraguas de colores. Visitaremos El Viejo Almacen, una casa tradicional de tango donde podrás disfrutar de un show espectacular con algunos de los mejores artistas de nuestro país. Finalizaremos en visitando a MAFALDA en el límite de San Telmo y Montserrat, zona de bares, arte, historia, comida, antigüedades y más."
+    },
+
+    {
+        "id": 12,
+        "nombre": "Walking Tour - Puerto Madero",
+        "imagen": "/img/Barrio Puerto Madero.jpg",
+        "precio": 45.99,
+        "stock": 10,
+        "description": "Disfrute de una caminata por el barrio más moderno de Buenos Aires. Comenzamos el tour en el bajo porteño, con el Palacio de Correos y Telecomunicaciones, actual Palacio Libertad, para adentrarnos en el corazón de Puerto Madero desde el nuevo Paseo del Bajo. Aprenderemos de Eduardo Madero, su proyecto para el viejo puerto de Buenos Aires y el legado patrimonial que hoy combina con los modernos rascacielos de este barrio.Visitaremos el famoso puente de la Mujer y la Fragata A.R.A. Sarmiento, insignia de la marina argentina. Cruzando el puente veremos el parque mujeres argentinas y hablaremos del plan arquitectónico del barrio, único y diferente al resto de la ciudad, con una serie de torres residenciales entre las que se encuentra el edificio más alto de Buenos Aires: La Alvear Tower. Continuamos para visitar una serie de Monumentos y la reconocida Cervecería Munich, testigo de la época de oro de Buenos Aires y hoy sede del Museo del Humor. Luego caminaremos por la vieja costanera, hoy límite de la Reserva Ecológica, espacio de biodiversidad única en la ciudad. Mientras te contamos acerca de la Reserva y de la popular costanera disfrutada por los porteños de antaño, veremos el paseo de la Gloria, dedicado a deportistas argentinos para terminar en la bellísima Fuente de las Nereidas, obra culmine de la escultora argentina Lola Mora que adorna el ingreso a la Reserva Ecológica. "
+    }
+
+]
+

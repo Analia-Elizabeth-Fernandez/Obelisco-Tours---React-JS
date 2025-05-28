@@ -1,0 +1,55 @@
+nav {
+    background-color: cadetblue;
+    color: white;
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    align-items: center;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+}
+
+footer {
+    background-color: cadetblue;
+    padding: 10px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+
+.footer-redes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 1rem 0;
+}
+
+.footer-redes img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+
+.footer-redes img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+.btnCart{
+    background-color: transparent;
+    border: none;
+}
+
+.fa-cart-shopping{
+    color: red;
+}

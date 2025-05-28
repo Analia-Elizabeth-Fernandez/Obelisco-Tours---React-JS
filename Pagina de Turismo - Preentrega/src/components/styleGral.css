@@ -1,0 +1,128 @@
+.main {
+    text-align: justify;
+    padding: 0 2rem;
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+.titulo {
+    text-align: center;
+
+}
+
+.video-header {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: cover;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.faq-container {
+    max-width: 100%;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.faq-question {
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: cadetblue;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: darkslategray;
+}
+
+.faq-answer {
+    margin-top: 10px;
+    color: white;
+    transition: all 0.3s ease;
+    text-align: justify;
+}
+
+.contacto-container {
+    padding: 2rem;
+}
+
+.contacto-contenedor {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+    /* 🔹 Hace que mapa y formulario tengan la misma altura */
+    margin-top: 2rem;
+}
+
+.mapa,
+.formulario {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mapa h3,
+.formulario h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.mapa iframe {
+    flex-grow: 1;
+    /* 🔹 El iframe se estira para ocupar todo el espacio disponible */
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    min-height: 400px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    text-align: left;
+    width: 100%; /* asegúrate que el form ocupe todo el ancho */
+    margin: 0;   /* sin márgenes */
+    padding: 0;  /* sin padding */
+}
+
+input,
+textarea,
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+input[type="submit"] {
+    background-color: cadetblue;
+    color: white;
+    border: none; /* si querés que tenga borde, quita esta línea */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #3a8080;
+}
