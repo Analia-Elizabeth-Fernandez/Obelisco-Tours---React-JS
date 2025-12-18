@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './styleEstatico.css'
-import Cart from '../../Cart'
+import Cart from '../Cart'
 
 const Header = () => {
   
@@ -25,3 +25,4 @@ const Header = () => {
 
 
 export default Header
+
