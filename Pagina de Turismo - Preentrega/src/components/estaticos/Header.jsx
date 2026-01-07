@@ -4,6 +4,7 @@ import './styleEstatico.css'
 import Cart from '../Cart'
 
 const Header = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false); 
   
 
   return (
@@ -20,16 +21,18 @@ const Header = () => {
               <i className="fa-solid fa-cart-shopping"></i>
             </button>
 
-            {/* Drawer */}
             <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
           </li>
         </ul>
       </nav>
+
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   );
 };
 
 export default Header;
+
 
 
 
