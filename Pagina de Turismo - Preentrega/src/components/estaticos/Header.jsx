@@ -19,12 +19,10 @@ const Header = () => {
           <li><Link to="/NuestrosTours" className="link">Nuestros Tours</Link></li>
           <li><Link to="/PreguntasFrecuentes" className="link">Preguntas Frecuentes</Link></li>
           <li><Link to="/Contacto" className="link">Contacto</Link></li>
+
+          {/* Carrito integrado en el header */}
           <li className="cartnav">
-            <button className="btnCart" onClick={() => setIsCartOpen(!isCartOpen)}>
-              <i className="fa-solid fa-cart-shopping"></i>
-              {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
-            </button>
-            <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+            <Cart />
           </li>
         </ul>
       </nav>
@@ -33,6 +31,7 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
 
