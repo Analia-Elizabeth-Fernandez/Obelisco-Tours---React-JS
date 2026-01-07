@@ -54,29 +54,50 @@ footer {
     color: red;
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: row; 
-    justify-content: space-between; 
-    align-items: center;
-    flex-wrap: wrap; 
-    padding: 0 10px; 
-  }
 
-  nav ul img {
-    width: 40px; 
-    height: 40px;
-  }
+nav ul {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+  flex-wrap: nowrap; 
+  gap: 20px; 
+}
 
+
+nav ul img {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+
+nav ul li.title {
+  flex: 1; 
+  text-align: center;
+  white-space: nowrap; 
+  font-size: 16px; 
+
+
+nav ul li a {
+  font-size: 14px; 
+  text-decoration: none;
+  color: white;
+  white-space: nowrap;
+}
+
+
+@media (max-width: 480px) {
   nav ul li a {
-    font-size: 14px; 
-    margin: 0 10px;
+    font-size: 12px; 
   }
 
-  nav h1 {
-    font-size: 18px;
-    white-space: nowrap; 
+  nav ul li.title {
+    font-size: 14px; 
   }
 }
+
 
 
