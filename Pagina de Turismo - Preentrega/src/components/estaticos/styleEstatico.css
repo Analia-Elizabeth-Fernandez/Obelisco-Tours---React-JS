@@ -12,8 +12,9 @@ ul {
     justify-content: space-between; /* espacio uniforme entre items */
     align-items: center;
     margin: 0;
-    padding: 0 10px;
-    gap: 20px; /* separación entre links */
+    padding: 0 4px;
+    gap: 5px; /* separación entre links */
+    box-sizing: border-box;
 }
 
 nav ul img {
@@ -109,6 +110,7 @@ main, section {
         height: 30px;
     }
 }
+
 
 
 
