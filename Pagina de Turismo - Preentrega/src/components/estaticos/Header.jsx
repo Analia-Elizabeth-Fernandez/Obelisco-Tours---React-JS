@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import './styleEstatico.css'
-import Cart from '../Cart'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import './styleEstatico.css';
+import { CartContext } from '../context/CartContext'; // tu contexto del carrito
 
 const Header = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false); 
-  
+  const { cart } = useContext(CartContext); // para mostrar la cantidad de items
 
   return (
     <header>
@@ -16,22 +15,21 @@ const Header = () => {
           <li><Link to='/NuestrosTours' className='link'>Nuestros Tours</Link></li>
           <li><Link to='/PreguntasFrecuentes' className='link'>Preguntas Frecuentes</Link></li>
           <li><Link to='/Contacto' className='link'>Contacto</Link></li>
-           <li className="cartnav">
-            <button className="btnCart" onClick={() => setIsCartOpen(!isCartOpen)}>
+          {/* carrito integrado como icono */}
+          <li className="cartnav">
+            <button className="btnCart">
               <i className="fa-solid fa-cart-shopping"></i>
+              {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
             </button>
-
-            <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
           </li>
         </ul>
       </nav>
-
-      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   );
 };
 
 export default Header;
+
 
 
 
