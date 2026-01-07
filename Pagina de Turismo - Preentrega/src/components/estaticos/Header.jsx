@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './styleEstatico.css';
-import { CartContext } from '../context/CartContext'; // tu contexto del carrito
+import { CartContext } from '../../context/CartContext'; // tu contexto del carrito
 
 const Header = () => {
   const { cart } = useContext(CartContext); // para mostrar la cantidad de items
@@ -29,6 +29,7 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
 
