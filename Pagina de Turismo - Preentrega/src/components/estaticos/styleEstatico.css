@@ -36,6 +36,11 @@ nav ul li a {
     white-space: nowrap;
 }
 
+.cartnav {
+    display: flex;
+    align-items: center;
+}    
+
 .link {
     color: white;
     text-decoration: none;
@@ -141,6 +146,7 @@ main, section {
         right: -4px;
     }
 }
+
 
 
 
