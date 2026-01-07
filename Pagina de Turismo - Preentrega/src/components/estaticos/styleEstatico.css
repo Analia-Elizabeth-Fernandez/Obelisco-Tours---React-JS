@@ -41,14 +41,29 @@ nav ul li a {
     text-decoration: none;
 }
 
+/* ===== Carrito integrado ===== */
 .btnCart {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    position: relative;
+    color: white;
 }
 
 .fa-cart-shopping {
-    color: red;
+    color: white;
+    font-size: 18px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: red;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 50%;
 }
 
 /* ===== Footer ===== */
@@ -109,7 +124,14 @@ main, section {
     }
 
     .cartnav button {
-        font-size: 18px;
+        font-size: 16px;
+    }
+
+    .cart-count {
+        font-size: 8px;
+        padding: 1px 4px;
+        top: -4px;
+        right: -4px;
     }
 }
 
