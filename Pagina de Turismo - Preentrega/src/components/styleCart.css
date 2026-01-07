@@ -1,19 +1,18 @@
 .cart-drawer {
-  position: fixed; 
-  top: 60px; 
-  right: 0;
-  width: 300px;
-  max-height: calc(100vh - 60px);
-  background: darkgrey;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 1000; 
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
+    position: fixed;
+    top: 60px; /* debajo del header */
+    right: 0;
+    width: 300px;
+    max-height: calc(100vh - 60px);
+    background: darkgrey;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
-
 
 .cart-drawer.open {
     transform: translateX(0%);
@@ -44,7 +43,7 @@
 .cart-empty {
     color: black;
     text-align: center;
-    margin-top: 40px;;
+    margin-top: 40px;
     font-weight: bold;
 }
 
@@ -52,8 +51,8 @@
     list-style: none;
     padding: 0;
     display: flex;
-    flex-direction: column; /* fuerza apilado vertical */
-    gap: 10px; /* espacio entre items */
+    flex-direction: column;
+    gap: 10px;
 }
 
 .cart-item {
@@ -66,6 +65,7 @@
     border-radius: 8px;
     gap: 16px;
 }
+
 .item-info {
     flex: 1;
     color: black;
@@ -75,7 +75,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    flex-shrink: 0
+    flex-shrink: 0;
 }
 
 .item-controls button {
@@ -86,7 +86,7 @@
     cursor: pointer;
     border-radius: 4px;
     font-size: 15px;
-    white-space: nowrap; /* evita que se corte el texto */
+    white-space: nowrap;
     min-width: 30px;
 }
 
@@ -105,8 +105,30 @@
     text-align: right;
     font-size: 18px;
     color: #333;
-
 }
+
+/* ===== Responsive carrito ===== */
+@media (max-width: 480px) {
+    .cart-drawer {
+        width: 90vw; /* ocupa casi toda la pantalla */
+        top: 50px; /* debajo del header más pequeño */
+    }
+
+    .cart-header h2 {
+        font-size: 16px;
+    }
+
+    .item-controls button {
+        font-size: 13px;
+        padding: 5px 6px;
+    }
+
+    .cart-total {
+        font-size: 16px;
+    }
+}
+
+
 
 
 
