@@ -1,17 +1,19 @@
 .cart-drawer {
-    position: absolute; 
-    top: 60px; 
-    right: 0;
-    width: 300px;
-    background: darkgrey;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 50;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    max-height: calc(100vh - 60px);
+  position: absolute; 
+  top: 60px; 
+  right: 0;
+  width: 300px;
+  max-height: calc(100vh - 60px);
+  background: darkgrey;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 50; 
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
+
 
 
 .cart-drawer.open {
@@ -106,4 +108,5 @@
     color: #333;
 
 }
+
 
