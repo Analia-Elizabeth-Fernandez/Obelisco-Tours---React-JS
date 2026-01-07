@@ -1,17 +1,16 @@
 .cart-drawer {
-    position: fixed; 
+    position: absolute; 
     top: 60px; 
     right: 0;
-    width: 350px;
-    height: calc(100% - 60px); 
+    width: 300px;
     background: darkgrey;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    z-index: 999;
+    z-index: 50;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    max-height: calc(100vh - 60px);
 }
 
 
@@ -107,3 +106,4 @@
     color: #333;
 
 }
+
