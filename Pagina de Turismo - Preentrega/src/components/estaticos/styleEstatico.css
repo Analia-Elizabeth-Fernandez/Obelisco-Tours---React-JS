@@ -56,9 +56,11 @@ footer {
 
 @media (max-width: 768px) {
   nav ul {
-    flex-direction: column; 
+    flex-direction: row; 
+    justify-content: space-between; 
     align-items: center;
-    gap: 10px; 
+    flex-wrap: wrap; 
+    padding: 0 10px; 
   }
 
   nav ul img {
@@ -68,7 +70,13 @@ footer {
 
   nav ul li a {
     font-size: 14px; 
-    padding: 5px 0;
+    margin: 0 10px;
+  }
+
+  nav h1 {
+    font-size: 18px;
+    white-space: nowrap; 
   }
 }
+
 
