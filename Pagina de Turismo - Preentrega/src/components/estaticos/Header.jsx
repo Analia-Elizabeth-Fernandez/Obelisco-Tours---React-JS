@@ -15,16 +15,21 @@ const Header = () => {
           <li><Link to='/NuestrosTours' className='link'>Nuestros Tours</Link></li>
           <li><Link to='/PreguntasFrecuentes' className='link'>Preguntas Frecuentes</Link></li>
           <li><Link to='/Contacto' className='link'>Contacto</Link></li>
-          <li className='cartnav'>
+           <li className="cartnav">
+            <button className="btnCart" onClick={() => setIsCartOpen(!isCartOpen)}>
+              <i className="fa-solid fa-cart-shopping"></i>
+            </button>
+
+            {/* Drawer */}
+            <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
           </li>
         </ul>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-
-export default Header
+export default Header;
 
 
 
