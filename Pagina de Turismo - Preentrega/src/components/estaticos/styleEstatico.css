@@ -8,12 +8,12 @@ nav {
 ul {
     list-style: none;
     display: flex;
-    justify-content: space-between; /* espacio uniforme entre secciones */
+    flex-wrap: wrap; /* permite que se divida en 2 líneas si es necesario */
+    justify-content: space-between; /* espacio uniforme entre items */
     align-items: center;
     margin: 0;
     padding: 0 10px;
-    flex-wrap: nowrap;
-    gap: 20px;
+    gap: 20px; /* separación entre links */
 }
 
 nav ul img {
@@ -22,11 +22,10 @@ nav ul img {
     flex-shrink: 0;
 }
 
-nav ul li.title {
-    flex: 1;
-    text-align: center;
-    white-space: nowrap;
-    font-size: 16px;
+nav ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 nav ul li a {
@@ -36,46 +35,10 @@ nav ul li a {
     white-space: nowrap;
 }
 
+/* ===== Carrito integrado ===== */
 .cartnav {
     display: flex;
     align-items: center;
-}    
-
-.link {
-    color: white;
-    text-decoration: none;
-}
-
-/* ===== Carrito integrado ===== */
-.btnCart {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    color: white;
-}
-
-.fa-cart-shopping {
-    color: white;
-    font-size: 18px;
-}
-
-.cart-count {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background: red;
-    color: white;
-    font-size: 10px;
-    padding: 2px 6px;
-    border-radius: 50%;
-}
-
-/* Alineación de los items del header */
-nav ul li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 /* ===== Footer ===== */
@@ -115,37 +78,34 @@ main, section {
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 480px) {
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+@media (max-width: 768px) {
+    ul {
+        gap: 15px;
     }
-
     nav ul img {
         width: 35px;
         height: 35px;
     }
+    nav ul li a {
+        font-size: 13px;
+    }
+}
 
+@media (max-width: 480px) {
+    ul {
+        gap: 10px;
+        justify-content: center;
+    }
     nav ul li a {
         font-size: 12px;
     }
-
-    nav ul li.title {
-        font-size: 14px;
-    }
-
-    .cartnav button {
-        font-size: 16px;
-    }
-
-    .cart-count {
-        font-size: 8px;
-        padding: 1px 4px;
-        top: -4px;
-        right: -4px;
+    nav ul img {
+        width: 30px;
+        height: 30px;
     }
 }
+
+
 
 
 
