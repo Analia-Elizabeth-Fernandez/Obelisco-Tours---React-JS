@@ -32,8 +32,13 @@ nav ul li a {
     font-size: 14px;
     text-decoration: none;
     color: white;
-    white-space: nowrap;
+
+    /* permite cortar palabras largas */
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
 }
+
 
 /* ===== Carrito integrado ===== */
 .cartnav {
@@ -104,6 +109,7 @@ main, section {
         height: 30px;
     }
 }
+
 
 
 
