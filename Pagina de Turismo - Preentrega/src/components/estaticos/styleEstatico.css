@@ -1,3 +1,4 @@
+/* ===== Header y nav ===== */
 nav {
     background-color: cadetblue;
     color: white;
@@ -7,9 +8,32 @@ nav {
 ul {
     list-style: none;
     display: flex;
-    justify-content: space-around;
-    margin: 0;
+    justify-content: space-between;
     align-items: center;
+    margin: 0;
+    padding: 0 10px;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+nav ul img {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+nav ul li.title {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+nav ul li a {
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
 }
 
 .link {
@@ -17,13 +41,23 @@ ul {
     text-decoration: none;
 }
 
+.btnCart {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.fa-cart-shopping {
+    color: red;
+}
+
+/* ===== Footer ===== */
 footer {
     background-color: cadetblue;
     padding: 10px;
     text-align: center;
     margin-top: 3px;
 }
-
 
 .footer-redes {
     display: flex;
@@ -37,7 +71,6 @@ footer {
     height: 40px;
     cursor: pointer;
     transition: transform 0.3s ease;
-
 }
 
 .footer-redes img:hover {
@@ -45,59 +78,42 @@ footer {
     filter: brightness(1.2);
 }
 
-.btnCart{
-    background-color: transparent;
-    border: none;
+/* ===== Contenedores principales ===== */
+main, section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
-.fa-cart-shopping{
-    color: red;
-}
-
-
-nav ul {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0 10px;
-  flex-wrap: nowrap; 
-  gap: 20px; 
-}
-
-
-nav ul img {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-}
-
-
-nav ul li.title {
-  flex: 1; 
-  text-align: center;
-  white-space: nowrap; 
-  font-size: 16px; 
-}
-
-nav ul li a {
-  font-size: 14px; 
-  text-decoration: none;
-  color: white;
-  white-space: nowrap;
-}
-
-
+/* ===== Responsive ===== */
 @media (max-width: 480px) {
-  nav ul li a {
-    font-size: 12px; 
-  }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
 
-  nav ul li.title {
-    font-size: 14px; 
-  }
+    nav ul img {
+        width: 35px;
+        height: 35px;
+    }
+
+    nav ul li a {
+        font-size: 12px;
+    }
+
+    nav ul li.title {
+        font-size: 14px;
+    }
+
+    .cartnav button {
+        font-size: 18px;
+    }
 }
+
+
 
 
 
