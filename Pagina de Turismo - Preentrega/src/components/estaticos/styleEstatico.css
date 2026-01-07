@@ -8,7 +8,7 @@ nav {
 ul {
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* espacio uniforme entre secciones */
     align-items: center;
     margin: 0;
     padding: 0 10px;
@@ -64,6 +64,13 @@ nav ul li a {
     font-size: 10px;
     padding: 2px 6px;
     border-radius: 50%;
+}
+
+/* Alineación de los items del header */
+nav ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* ===== Footer ===== */
@@ -134,7 +141,6 @@ main, section {
         right: -4px;
     }
 }
-
 
 
 
