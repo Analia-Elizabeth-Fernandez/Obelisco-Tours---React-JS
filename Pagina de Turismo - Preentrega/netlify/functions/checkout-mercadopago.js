@@ -1,4 +1,3 @@
-// netlify/functions/checkout-mercadopago.js
 import mercadopago from "mercadopago";
 
 mercadopago.configurations.setAccessToken(process.env.MP_ACCESS_TOKEN);
@@ -28,10 +27,10 @@ export async function handler(event) {
       body: JSON.stringify({ url: response.body.init_point }),
     };
   } catch (error) {
-    console.error("Error en checkout-mercadopago:", error);
+    console.error("Error creando la preferencia de Mercado Pago:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message }),
+      body: JSON.stringify({ error: "Error al crear la preferencia" }),
     };
   }
 }
