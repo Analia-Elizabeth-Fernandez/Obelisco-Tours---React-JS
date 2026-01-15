@@ -31,6 +31,8 @@ function App() {
         🛒 ({cart.reduce((acc, item) => acc + item.cantidad, 0)})
       </button>
 
+      {console.log("showCart:", showCart)}
+      
       {showCart && (
         <Cart
           cartItems={cart} 
