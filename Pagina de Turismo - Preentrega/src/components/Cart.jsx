@@ -9,26 +9,25 @@ const Cart = ({ isOpen, onClose }) => {
     const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
     const iniciarPago = async (metodo) => {
-  try {
-    const response = await fetch(
-      `/.netlify/functions/checkout-${metodo}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart }),
-      }
-    );
+        try {
+            const response = await fetch(
+                `/.netlify/functions/checkout-${metodo}`,
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ cart }),
+                }
+            );
 
-    const data = await response.json();
+            const data = await response.json();
 
-    if (data.url) {
-      window.location.href = data.url;
-    }
-  } catch (error) {
-    console.error("Error al iniciar pago", error);
-  }
-};
-
+            if (data.url) {
+                window.location.href = data.url;
+            }
+        } catch (error) {
+            console.error("Error al iniciar pago", error);
+        }
+    };
 
     return (
         <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
@@ -66,36 +65,35 @@ const Cart = ({ isOpen, onClose }) => {
                         <p><strong>Total:</strong> USD {total.toFixed(2)}</p>
                     </div>
                 )}
-                {cart.length > 0 && (
-            
+
+                {/* Botón Comprar */}
                 {cart.length > 0 && !showPaymentButtons && (
-  <button 
-    className="btn-comprar"
-    onClick={() => setShowPaymentButtons(true)}
-  >
-    🛒 Comprar
-  </button>
-)}
+                    <button 
+                        className="btn-comprar"
+                        onClick={() => setShowPaymentButtons(true)}
+                    >
+                        🛒 Comprar
+                    </button>
+                )}
 
-{cart.length > 0 && showPaymentButtons && (
-  <div className="checkout-buttons">
-    <button 
-      className="btn-mp"
-      onClick={() => iniciarPago("mercadopago")}
-    >
-      💳 Pagar con Mercado Pago
-    </button>
+                {/* Botones de pago */}
+                {cart.length > 0 && showPaymentButtons && (
+                    <div className="checkout-buttons">
+                        <button 
+                            className="btn-mp"
+                            onClick={() => iniciarPago("mercadopago")}
+                        >
+                            💳 Pagar con Mercado Pago
+                        </button>
 
-    <button 
-      className="btn-paypal"
-      onClick={() => iniciarPago("paypal")}
-    >
-      🌍 Pagar con PayPal
-    </button>
-  </div>
-)}
-
-
+                        <button 
+                            className="btn-paypal"
+                            onClick={() => iniciarPago("paypal")}
+                        >
+                            🌍 Pagar con PayPal
+                        </button>
+                    </div>
+                )}
 
             </div>
         </div>
@@ -103,6 +101,7 @@ const Cart = ({ isOpen, onClose }) => {
 };
 
 export default Cart;
+
 
 
 
