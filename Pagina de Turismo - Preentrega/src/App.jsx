@@ -12,6 +12,8 @@ import Login from './pages/Login'
 import RutaProtegida from './auth/RutasProtegidas'
 import { CartContext } from './context/CartContext'
 import Cart from './components/Cart'
+import Success from "./pages/Success";
+
 
 
 function App() {
@@ -44,9 +46,11 @@ function App() {
         <Route path='/productos/:id' element={<DetallesProductos productos={productos} />} />
         <Route path='/preguntasfrecuentes' element={<PreguntasFrecuentes borrarProducto={handleDeleteFromCart} cart={cart} cargando={cargando} />} />
         <Route path='/contacto' element={<Contacto borrarProducto={handleDeleteFromCart} cart={cart} cargando={cargando} />} />
+        <Route path="/success" element={<Success />} />
         <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /> </RutaProtegida>} />
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<NotFound />} />
+        
       </Routes>
     </Router>
   )
