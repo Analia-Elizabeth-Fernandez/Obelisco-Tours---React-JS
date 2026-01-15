@@ -1,9 +1,9 @@
-import MercadoPago from "mercadopago";
+const MercadoPago = require("mercadopago");
 
-// Crea una instancia con tu access token
+// Inicializa MercadoPago con tu access token
 const mercadopago = new MercadoPago(process.env.MP_ACCESS_TOKEN);
 
-export async function handler(event) {
+exports.handler = async function (event, context) {
   try {
     if (!event.body) {
       return {
@@ -48,4 +48,4 @@ export async function handler(event) {
       body: JSON.stringify({ error: error.message }),
     };
   }
-}
+};
