@@ -1,15 +1,29 @@
-// netlify/functions/checkout-mercadopago.js
-const mercadopago = require("mercadopago");
+import mercadopago from "mercadopago";
 
-// Asignamos el token
-mercadopago.access_token = process.env.MP_ACCESS_TOKEN;
+// Configura tu token de Mercado Pago desde las Environment Variables de Netlify
+mercadopago.configurations.setAccessToken(process.env.MP_ACCESS_TOKEN);
 
-exports.handler = async function(event) {
+export async function handler(event) {
   try {
+    if (!event.body) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "No se recibió body en la petición" }),
+      };
+    }
+
     const { cart } = JSON.parse(event.body);
 
+    if (!cart || cart.length === 0) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Carrito vacío" }),
+      };
+    }
+
+    // Crea la preferencia de pago
     const preference = {
-      items: cart.map(item => ({
+      items: cart.map((item) => ({
         title: item.nombre,
         unit_price: item.precio,
         quantity: item.cantidad,
@@ -29,10 +43,10 @@ exports.handler = async function(event) {
       body: JSON.stringify({ url: response.body.init_point }),
     };
   } catch (error) {
-    console.error("Error en la función de checkout:", error);
+    console.error("Error en checkout-mercadopago:", error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: error.message }),
     };
   }
-};
+}
