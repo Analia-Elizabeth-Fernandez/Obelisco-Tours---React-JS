@@ -68,8 +68,7 @@ const Cart = ({ isOpen, onClose }) => {
                 )}
                 {cart.length > 0 && (
             
- {/* Botón Comprar */}
-{cart.length > 0 && !showPaymentButtons && (
+                {cart.length > 0 && !showPaymentButtons && (
   <button 
     className="btn-comprar"
     onClick={() => setShowPaymentButtons(true)}
@@ -78,7 +77,6 @@ const Cart = ({ isOpen, onClose }) => {
   </button>
 )}
 
-{/* Botones de pago */}
 {cart.length > 0 && showPaymentButtons && (
   <div className="checkout-buttons">
     <button 
@@ -98,12 +96,14 @@ const Cart = ({ isOpen, onClose }) => {
 )}
 
 
+
             </div>
         </div>
     );
 };
 
 export default Cart;
+
 
 
 
