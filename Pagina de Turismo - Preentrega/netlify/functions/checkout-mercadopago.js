@@ -1,3 +1,4 @@
+// netlify/functions/checkout-mercadopago.js
 const MercadoPago = require("mercadopago");
 
 // Inicializa MercadoPago con tu access token
