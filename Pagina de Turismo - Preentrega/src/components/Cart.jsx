@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './styleCart.css';
 import { CartContext } from '../context/CartContext';
 
 const Cart = ({ isOpen, onClose }) => {
     const { cart, handleAddToCart, handleDeleteFromCart } = useContext(CartContext);
+    const [showPaymentButtons, setShowPaymentButtons] = useState(false);
 
     const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
@@ -66,6 +67,19 @@ const Cart = ({ isOpen, onClose }) => {
                     </div>
                 )}
                 {cart.length > 0 && (
+            
+ {/* Botón Comprar */}
+{cart.length > 0 && !showPaymentButtons && (
+  <button 
+    className="btn-comprar"
+    onClick={() => setShowPaymentButtons(true)}
+  >
+    🛒 Comprar
+  </button>
+)}
+
+{/* Botones de pago */}
+{cart.length > 0 && showPaymentButtons && (
   <div className="checkout-buttons">
     <button 
       className="btn-mp"
@@ -83,11 +97,13 @@ const Cart = ({ isOpen, onClose }) => {
   </div>
 )}
 
+
             </div>
         </div>
     );
 };
 
 export default Cart;
+
 
 
