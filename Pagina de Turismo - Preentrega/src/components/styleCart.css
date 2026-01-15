@@ -128,6 +128,40 @@
     }
 }
 
+.checkout-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-mp {
+  background-color: #009ee3;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-paypal {
+  background-color: #ffc439;
+  color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-mp:hover,
+.btn-paypal:hover {
+  opacity: 0.9;
+}
+
+
+
 
 
 
