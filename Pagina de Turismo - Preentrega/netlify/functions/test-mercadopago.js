@@ -27,7 +27,7 @@ export async function handler(event) {
       body: JSON.stringify({ url: response.body.init_point }),
     };
   } catch (error) {
-    console.error("Error en checkout-mercadopago:", error);
+    console.error("Error en función MercadoPago:", error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: error.message }),
