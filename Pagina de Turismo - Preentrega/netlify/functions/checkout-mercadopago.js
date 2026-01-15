@@ -1,11 +1,9 @@
-import mercadopago from "mercadopago";
+// checkout-mercadopago.js (Netlify Function)
+const mercadopago = require("mercadopago");
 
-// En v2 ya no se usa .configure(), se instancia con el token
-const mp = new mercadopago({
-  access_token: process.env.MP_ACCESS_TOKEN,
-});
+mercadopago.configurations.setAccessToken(process.env.MP_ACCESS_TOKEN);
 
-export async function handler(event) {
+exports.handler = async function(event) {
   try {
     const { cart } = JSON.parse(event.body);
 
@@ -23,7 +21,7 @@ export async function handler(event) {
       auto_return: "approved",
     };
 
-    const response = await mp.preferences.create(preference);
+    const response = await mercadopago.preferences.create(preference);
 
     return {
       statusCode: 200,
@@ -36,4 +34,4 @@ export async function handler(event) {
       body: JSON.stringify({ error: error.message }),
     };
   }
-}
+};
