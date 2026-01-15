@@ -1,7 +1,8 @@
-const mercadopago = require("mercadopago");
+import mercadopago from "mercadopago";
 
-mercadopago.configurations.setAccessToken(process.env.MP_ACCESS_TOKEN);
-
+mercadopago.configure({
+  access_token: process.env.MP_ACCESS_TOKEN,
+});
 
 export async function handler(event) {
   const { cart } = JSON.parse(event.body);
