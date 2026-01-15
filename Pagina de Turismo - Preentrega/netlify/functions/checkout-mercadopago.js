@@ -1,7 +1,7 @@
-import mercadopago from "mercadopago";
+import MercadoPago from "mercadopago";
 
-// Configura tu token de Mercado Pago desde las Environment Variables de Netlify
-mercadopago.configurations.setAccessToken(process.env.MP_ACCESS_TOKEN);
+// Crea una instancia con tu access token
+const mercadopago = new MercadoPago(process.env.MP_ACCESS_TOKEN);
 
 export async function handler(event) {
   try {
@@ -21,7 +21,6 @@ export async function handler(event) {
       };
     }
 
-    // Crea la preferencia de pago
     const preference = {
       items: cart.map((item) => ({
         title: item.nombre,
