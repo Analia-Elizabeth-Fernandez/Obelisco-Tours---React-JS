@@ -6,6 +6,9 @@ const Cart = ({ isOpen, onClose }) => {
     const { cart, handleAddToCart, handleDeleteFromCart } = useContext(CartContext);
     const [showPaymentButtons, setShowPaymentButtons] = useState(false);
 
+    console.log("showCart:", showCart);
+
+
     const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
     const iniciarPago = async (metodo) => {
@@ -101,6 +104,7 @@ const Cart = ({ isOpen, onClose }) => {
 };
 
 export default Cart;
+
 
 
 
