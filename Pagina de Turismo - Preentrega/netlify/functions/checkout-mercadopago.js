@@ -1,9 +1,7 @@
 // checkout-mercadopago.js
-const MercadoPago = require("mercadopago");
+const mercadopago = require("mercadopago");
 
-const mercadopago = new MercadoPago(process.env.MP_ACCESS_TOKEN, {
-  integrator_id: "dev_24c65fb163bf11ea96500242ac130004", // opcional, solo si tienes integrator_id
-});
+mercadopago.configurations.setAccessToken(process.env.MP_ACCESS_TOKEN);
 
 exports.handler = async function(event) {
   try {
