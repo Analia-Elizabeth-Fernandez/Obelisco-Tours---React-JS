@@ -1,7 +1,7 @@
 // netlify/functions/checkout-mercadopago.js
 const mercadopago = require("mercadopago");
 
-// Configurá tu access token
+// Configuramos el access token de Mercado Pago
 mercadopago.configurations.setAccessToken(process.env.MP_ACCESS_TOKEN);
 
 exports.handler = async function(event) {
