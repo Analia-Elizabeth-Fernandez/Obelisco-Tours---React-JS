@@ -1,24 +1,33 @@
 import mercadopago from "mercadopago";
 
+mercadopago.configurations.setAccessToken(process.env.MP_ACCESS_TOKEN);
+
 export async function handler(event) {
   try {
-    // Solo probamos si podemos acceder a la librería
-    if (!mercadopago) {
-      throw new Error("MercadoPago no se cargó");
-    }
+    const { cart } = JSON.parse(event.body);
 
-    // Intentamos acceder a la configuración de acceso
-    const accessToken = process.env.MP_ACCESS_TOKEN || "NO_TOKEN";
+    const preference = {
+      items: cart.map(item => ({
+        title: item.nombre,
+        unit_price: item.precio,
+        quantity: item.cantidad,
+        currency_id: "USD",
+      })),
+      back_urls: {
+        success: "https://obeliscotours.netlify.app/success",
+        failure: "https://obeliscotours.netlify.app/cancel",
+      },
+      auto_return: "approved",
+    };
+
+    const response = await mercadopago.preferences.create(preference);
+
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        message: "MercadoPago cargado correctamente",
-        accessToken: accessToken,
-        mercadopagoKeys: Object.keys(mercadopago),
-      }),
+      body: JSON.stringify({ url: response.body.init_point }),
     };
   } catch (error) {
-    console.error("Error en test-mercadopago:", error);
+    console.error("Error en checkout-mercadopago:", error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: error.message }),
