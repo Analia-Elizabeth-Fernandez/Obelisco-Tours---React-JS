@@ -7,6 +7,28 @@ const Cart = ({ isOpen, onClose }) => {
 
     const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
+    const iniciarPago = async (metodo) => {
+  try {
+    const response = await fetch(
+      `/.netlify/functions/checkout-${metodo}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cart }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    }
+  } catch (error) {
+    console.error("Error al iniciar pago", error);
+  }
+};
+
+
     return (
         <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
             <div className="cart-header">
@@ -43,10 +65,29 @@ const Cart = ({ isOpen, onClose }) => {
                         <p><strong>Total:</strong> USD {total.toFixed(2)}</p>
                     </div>
                 )}
+                {cart.length > 0 && (
+  <div className="checkout-buttons">
+    <button 
+      className="btn-mp"
+      onClick={() => iniciarPago("mercadopago")}
+    >
+      💳 Pagar con Mercado Pago
+    </button>
+
+    <button 
+      className="btn-paypal"
+      onClick={() => iniciarPago("paypal")}
+    >
+      🌍 Pagar con PayPal
+    </button>
+  </div>
+)}
+
             </div>
         </div>
     );
 };
 
 export default Cart;
+
 
