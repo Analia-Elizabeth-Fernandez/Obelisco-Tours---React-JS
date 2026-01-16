@@ -1,6 +1,8 @@
-import mercadopago from "mercadopago";
+import MercadoPago from "mercadopago";
 
-mercadopago.configurations.setAccessToken(process.env.MP_ACCESS_TOKEN);
+const client = new MercadoPago({
+  accessToken: process.env.MP_ACCESS_TOKEN,
+});
 
 export async function handler(event) {
   try {
@@ -9,8 +11,8 @@ export async function handler(event) {
     const preference = {
       items: cart.map(item => ({
         title: item.nombre,
-        unit_price: item.precio,
-        quantity: item.cantidad,
+        unit_price: Number(item.precio),
+        quantity: Number(item.cantidad),
         currency_id: "USD",
       })),
       back_urls: {
@@ -20,14 +22,15 @@ export async function handler(event) {
       auto_return: "approved",
     };
 
-    const response = await mercadopago.preferences.create(preference);
+    const response = await client.preference.create({ body: preference });
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ url: response.body.init_point }),
+      body: JSON.stringify({ url: response.init_point }),
     };
   } catch (error) {
-    console.error("Error en checkout-mercadopago:", error);
+    console.error(error);
+
     return {
       statusCode: 500,
       body: JSON.stringify({ error: error.message }),
