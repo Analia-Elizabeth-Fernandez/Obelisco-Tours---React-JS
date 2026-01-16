@@ -1,39 +1,35 @@
-// Cambiamos la forma de importar
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 
-// Configuramos el cliente
 const client = new MercadoPagoConfig({ 
   accessToken: process.env.MP_ACCESS_TOKEN 
 });
 
 export async function handler(event) {
-  // 1. Manejar el preflight de CORS
+  // Manejo de CORS (Preflight)
   if (event.httpMethod === "OPTIONS") {
-  return {
-  statusCode: 200,
-  headers: {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*", // Permite que React lea la respuesta
-  },
-  body: JSON.stringify({ url: response.init_point }),
-};
-    
-  // 2. Solo permitir POST
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+      },
+      body: "",
+    };
+  }
+
   if (event.httpMethod !== "POST") {
     return { 
       statusCode: 405, 
-      body: JSON.stringify({ error: "Debes usar POST" }) 
+      body: JSON.stringify({ error: "Método no permitido" }) 
     };
   }
 
   try {
-    // ... aquí sigue tu código de Mercado Pago (el que corregimos antes)
     const { cart } = JSON.parse(event.body);
-
-    // Creamos la instancia de Preference usando el cliente
     const preferenceInstance = new Preference(client);
 
-    const preferenceData = {
+    const response = await preferenceInstance.create({
       body: {
         items: cart.map(item => ({
           title: item.nombre,
@@ -47,20 +43,21 @@ export async function handler(event) {
         },
         auto_return: "approved",
       }
-    };
-
-    // Usamos el método create de la instancia
-    const response = await preferenceInstance.create(preferenceData);
+    });
 
     return {
       statusCode: 200,
+      headers: { 
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
       body: JSON.stringify({ url: response.init_point }),
     };
   } catch (error) {
-    console.error("Error Mercado Pago:", error);
-
+    console.error("Error MP:", error);
     return {
       statusCode: 500,
+      headers: { "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ error: error.message }),
     };
   }
