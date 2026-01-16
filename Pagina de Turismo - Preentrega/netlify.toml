@@ -6,6 +6,7 @@
   directory = "netlify/functions"
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/api/checkout-mercadopago"
+  to = "/.netlify/functions/checkout-mercadopago"
   status = 200
+  force = true
