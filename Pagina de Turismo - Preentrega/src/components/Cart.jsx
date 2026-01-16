@@ -8,33 +8,29 @@ const Cart = ({ isOpen, onClose }) => {
 
     const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
-    const iniciarPago = async (metodo) => {
-        try {
-            const response = await fetch(
-                `/.netlify/functions/checkout-${metodo}`,
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ cart }),
-                }
-            );
+   const iniciarPago = async (metodo) => {
+    try {
+        // CAMBIO IMPORTANTE: Usa la ruta empezando con / y sin puntos
+        const response = await fetch("/api/checkout-mercadopago", { 
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({ cart: cart }),
+        });
 
-            if (!response.ok) {
-                throw new Error("Error en la respuesta del servidor");
-            }
+        const data = await response.json();
 
-            const data = await response.json();
-
-            if (data.url) {
-                window.location.href = data.url;
-            } else {
-                console.error("No se encontró la URL en la respuesta:", data);
-            }
-        } catch (error) {
-            console.error("Error al iniciar pago:", error);
-            alert("Hubo un error al procesar el pago. Por favor, intenta de nuevo.");
+        if (data.url) {
+            window.location.href = data.url;
+        } else {
+            console.error("Respuesta sin URL:", data);
         }
-    };
+    } catch (error) {
+        console.error("Error al iniciar pago:", error);
+    }
+};
 
     return (
         <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
@@ -105,6 +101,7 @@ const Cart = ({ isOpen, onClose }) => {
 };
 
 export default Cart;
+
 
 
 
