@@ -7,12 +7,29 @@ const client = new MercadoPagoConfig({
 });
 
 export async function handler(event) {
-  // Solo permitir peticiones POST
+  // 1. Manejar el preflight de CORS
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+      },
+      body: "",
+    };
+  }
+
+  // 2. Solo permitir POST
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+    return { 
+      statusCode: 405, 
+      body: JSON.stringify({ error: "Debes usar POST" }) 
+    };
   }
 
   try {
+    // ... aquí sigue tu código de Mercado Pago (el que corregimos antes)
     const { cart } = JSON.parse(event.body);
 
     // Creamos la instancia de Preference usando el cliente
