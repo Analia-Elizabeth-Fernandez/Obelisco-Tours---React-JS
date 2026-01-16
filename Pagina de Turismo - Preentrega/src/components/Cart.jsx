@@ -8,16 +8,19 @@ const Cart = ({ isOpen, onClose }) => {
 
     const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
-    const iniciarPago = async (metodo) => {
-        try {
-    const response = await fetch(
-    `/api/checkout-${metodo}`, // Cambiado de /.netlify/functions/...
-    {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart }),
-    }
-);
+   const iniciarPago = async (metodo) => {
+    try {
+        const response = await fetch(
+            "https://obeliscotours.netlify.app/.netlify/functions/checkout-mercadopago", // URL completa
+            {
+                method: "POST", // Asegúrate que diga POST
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Accept": "application/json" 
+                },
+                body: JSON.stringify({ cart }),
+            }
+        );
 
             const data = await response.json();
 
@@ -101,6 +104,7 @@ const Cart = ({ isOpen, onClose }) => {
 };
 
 export default Cart;
+
 
 
 
