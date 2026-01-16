@@ -35,15 +35,6 @@ const Cart = ({ isOpen, onClose }) => {
             alert("Hubo un error al procesar el pago. Por favor, intenta de nuevo.");
         }
     };
-            const data = await response.json();
-
-            if (data.url) {
-                window.location.href = data.url;
-            }
-        } catch (error) {
-            console.error("Error al iniciar pago", error);
-        }
-    };
 
     return (
         <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
@@ -82,7 +73,6 @@ const Cart = ({ isOpen, onClose }) => {
                     </div>
                 )}
 
-                {/* Botón Comprar */}
                 {cart.length > 0 && !showPaymentButtons && (
                     <button 
                         className="btn-comprar"
@@ -92,7 +82,6 @@ const Cart = ({ isOpen, onClose }) => {
                     </button>
                 )}
 
-                {/* Botones de pago */}
                 {cart.length > 0 && showPaymentButtons && (
                     <div className="checkout-buttons">
                         <button 
@@ -110,15 +99,12 @@ const Cart = ({ isOpen, onClose }) => {
                         </button>
                     </div>
                 )}
-
             </div>
         </div>
     );
 };
 
 export default Cart;
-
-
 
 
 
