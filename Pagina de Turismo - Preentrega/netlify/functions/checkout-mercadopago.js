@@ -9,17 +9,15 @@ const client = new MercadoPagoConfig({
 export async function handler(event) {
   // 1. Manejar el preflight de CORS
   if (event.httpMethod === "OPTIONS") {
-    return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-      },
-      body: "",
-    };
-  }
-
+  return {
+  statusCode: 200,
+  headers: {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*", // Permite que React lea la respuesta
+  },
+  body: JSON.stringify({ url: response.init_point }),
+};
+    
   // 2. Solo permitir POST
   if (event.httpMethod !== "POST") {
     return { 
