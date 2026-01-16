@@ -8,31 +8,29 @@ const Cart = ({ isOpen, onClose }) => {
 
     const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
-   const iniciarPago = async (metodo) => {
+  const iniciarPago = async (metodo) => { // Asegúrate de que diga "async" aquí
     try {
-        // Usamos ruta relativa sin barra al final
-        const response = await fetch("/.netlify/functions/checkout-mercadopago", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ cart: cart }), // Asegúrate de que cart sea un array
-        });
+        const response = await fetch(
+            `/.netlify/functions/checkout-${metodo}`,
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ cart }),
+            }
+        );
 
-        // Agregamos un log para ver qué responde el servidor exactamente
-        const data = await response.json();
-        console.log("Respuesta del servidor:", data);
+        // Esta es la línea 36 que causaba el error
+        const data = await response.json(); 
 
         if (data.url) {
             window.location.href = data.url;
         } else {
-            console.error("No se recibió URL de redirección", data);
+            console.error("No se recibió la URL de Mercado Pago", data);
         }
     } catch (error) {
-        console.error("Error al iniciar pago:", error);
+        console.error("Error al iniciar pago", error);
     }
 };
-
             const data = await response.json();
 
             if (data.url) {
@@ -115,6 +113,7 @@ const Cart = ({ isOpen, onClose }) => {
 };
 
 export default Cart;
+
 
 
 
