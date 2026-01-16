@@ -10,14 +10,14 @@ const Cart = ({ isOpen, onClose }) => {
 
     const iniciarPago = async (metodo) => {
         try {
-            const response = await fetch(
-                `/.netlify/functions/checkout-${metodo}`,
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ cart }),
-                }
-            );
+    const response = await fetch(
+    `/api/checkout-${metodo}`, // Cambiado de /.netlify/functions/...
+    {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cart }),
+    }
+);
 
             const data = await response.json();
 
@@ -101,6 +101,7 @@ const Cart = ({ isOpen, onClose }) => {
 };
 
 export default Cart;
+
 
 
 
