@@ -7,19 +7,19 @@ import './styleEstatico.css';
 const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { cart } = useContext(CartContext);
-
   return (
     <header>
       <nav>
         <ul>
           <li>
-            <img src="/img/obelisco.png" alt="logo" />
+            <Link to="/">
+              <img src="/img/obelisco.png" alt="Obelisco Tours" />
+            </Link>
           </li>
           <li><Link to="/" className="link">Bienvenidos</Link></li>
           <li><Link to="/NuestrosTours" className="link">Nuestros Tours</Link></li>
           <li><Link to="/PreguntasFrecuentes" className="link">Preguntas Frecuentes</Link></li>
           <li><Link to="/Contacto" className="link">Contacto</Link></li>
-
           {/* Carrito integrado en el header */}
           <li className="cartnav">
             <Cart />
@@ -29,9 +29,7 @@ const Header = () => {
     </header>
   );
 };
-
 export default Header;
-
 
 
 
